@@ -28,9 +28,18 @@
         }
 
         /******** nav *******/
-
+        .nav {
+            height: 10%;
+        }
         .nav-target {
             color: #0062D7;
+        }
+        .nav table {
+            width: 100%;
+            align: center;
+        }
+        .nav table tr {
+            text-align:center;
         }
         .nav span {
             width :200px;
@@ -41,14 +50,23 @@
 </head>
 <body>
 <div class="nav">
-    <span>市区信息</span>
-    <span>镇级条线</span>
-    <span class="nav-target">
-        基层社区
-        <div><hr style="height:1px;border:none;border-top:2px solid #0062D7;" /></div>
-    </span>
+    <table>
+        <tr>
+            <td>市区信息</td>
+            <td>镇级条线</td>
+            <td class="nav-target">基层社区</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <div><hr style="height:1px;border:none;border-top:2px solid #0062D7; width:70px" /></div>
+            </td>
+        </tr>
+
+    </table>
 </div>
-<div class="nav">
+<div>
     <table>
         <tr>
             <td>

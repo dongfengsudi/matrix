@@ -1,0 +1,49 @@
+/******** top *******/
+.top {
+    height: 6%;
+    background: #333333;
+}
+.top div {
+    color: #fff;
+    text-align:center;
+    padding-top: 2%;
+}
+
+/******** nav *******/
+.nav {
+    height: 10%;
+    margin-top: 10px;
+}
+.nav-target {
+    color: #0062D7;
+}
+.nav table {
+    width: 100%;
+    align: center;
+}
+.nav table tr {
+    text-align:center;
+}
+.nav span {
+    width :200px;
+}
+
+/****** content *********/
+.content {
+    margin-top: 0px;
+}
+.content table {
+    width:  100%;
+    align: center;
+    border-spacing:10px;
+}
+.content table tr {
+    text-align:center;
+    width:  100%;
+    height: 130px;
+    color: #fff;
+}
+.content table td {
+    border-radius: 10px;
+    margin: 10px;
+}

@@ -1,7 +1,15 @@
 package com.dongfeng.controller;
 
+import com.dongfeng.biz.data.CommunityCellDO;
+import com.dongfeng.biz.data.CommunityPageDO;
+import com.dongfeng.biz.page.CommunityPageService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author muying.xx
@@ -10,23 +18,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
+    @Resource
+    private CommunityPageService communityPageService;
+
+
     @GetMapping("/")
     public String root() {
         return "index";
     }
 
-    @GetMapping("/city_page")
+    @RequestMapping("/city_page")
     public String cityPage() {
         return "city_page";
     }
 
-    @GetMapping("town_page")
+    @RequestMapping("town_page")
     public String townPage() {
         return "town_page";
     }
 
-    @GetMapping("community_page")
-    public String communityPage() {
+    @RequestMapping("community_page")
+    public String communityPage(Model model) {
+        CommunityPageDO communityPageDO = communityPageService.getPage();
+        if (communityPageDO == null) {
+            return "error";
+        }
+        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        model.addAttribute("lineList",lineList);
         return "community_page";
     }
 

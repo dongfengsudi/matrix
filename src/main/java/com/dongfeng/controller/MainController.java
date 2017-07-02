@@ -14,4 +14,20 @@ public class MainController {
     public String root() {
         return "index";
     }
+
+    @GetMapping("/city_page")
+    public String cityPage() {
+        return "city_page";
+    }
+
+    @GetMapping("town_page")
+    public String townPage() {
+        return "town_page";
+    }
+
+    @GetMapping("community_page")
+    public String communityPage() {
+        return "community_page";
+    }
+
 }

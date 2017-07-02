@@ -3,6 +3,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
     <style type="text/css">
+        body {
+            padding:0;  /*去除内边距*/
+            border:0;   /*去除边框*/
+            margin:0;   /*去除外边距*/
+        }
         .demo {
             width: 150px;
             height: 80px;
@@ -10,14 +15,35 @@
             background: #ccc;
             border-radius: 10px;
         }
+        .top {
+            height: 6%;
+            background: #333333;
+        }
+        .top div {
+            color: #fff;
+            text-align:center;
+            padding-top: 2%;
+        }
+        .nav-target {
+            color: #0062D7;
+        }
+        .nav span {
+            width :200px;
+        }
     </style>
     <title>今日金桥微信矩阵</title>
 </head>
 <body>
+<div class="top">
+    <div>今日金桥微信矩阵</div>
+</div>
 <div class="nav">
     <span>市区信息</span>
     <span>镇级条线</span>
-    <span>基层社区</span>
+    <span class="nav-target">
+        基层社区
+        <div><hr style="height:1px;border:none;border-top:2px solid #0062D7;" /></div>
+    </span>
 </div>
 <div class="nav">
     <table>

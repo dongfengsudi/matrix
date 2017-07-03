@@ -12,4 +12,5 @@ import lombok.Data;
 public class CommunityCellDO {
     private String title;
     private String backgroudImg; // 背景图片
+    private String link; // 链接
 }

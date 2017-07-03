@@ -31,6 +31,7 @@
             <td  th:each="cell : ${line} "
                  th:style=" 'background:url('+@{${cell.backgroudImg}}+');background-size:100%100%' "
                  th:text="${cell.title}">
+                <a th:href="@{${cell.link}">1231</a>
             </td>
         </tr>
     </table>

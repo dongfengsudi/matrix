@@ -5,13 +5,15 @@
 }
 .slide-wrap .slider {
   width: 100%;
-  min-height: 100px;
+  /*min-height: 100px;*/
+  height:250px!important;
   overflow: hidden;
   position: relative;
 }
 .slide-wrap .slide-list {
   width: 100%;
   position: absolute;
+    background-size: cover;
   left: 0;
   top: 0;
 }
@@ -45,14 +47,17 @@
   margin-bottom: 20px;
 }
 .item-wrap .item-list {
+    width:80%;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
   overflow: hidden;
+    float:left;
 }
 .item-wrap .item-list .item-img {
+    border-radius:50%;
   float: left;
-  width: 130px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   margin-right: 10px;
   overflow: hidden;
 }
@@ -73,6 +78,12 @@
   color: #999;
   line-height: 1.2;
   overflow: hidden;
+}
+
+.item-wrap.item-button{
+    /*height:100px;*/
+    width:20%;
+    float:left;
 }
 
 .ad-wrap {

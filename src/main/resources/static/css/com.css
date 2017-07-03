@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-*{margin:0px; padding:0px;}
+/**{margin:0px; padding:0px;}*/
 body{font-family:"宋体";}
 .body_index{ background-color:#f9f8f8;}
 .body_reg_login{ background-color:#f0f0f0;}

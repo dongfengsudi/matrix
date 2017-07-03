@@ -6,6 +6,15 @@
     <link href="../static/css/common.css" rel="stylesheet" type="text/css" />
     <link href="../static/css/community_page.css"  rel="stylesheet" type="text/css" />
     <title>今日金桥微信矩阵</title>
+
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+    <script language="JavaScript">
+        $(function () {
+            $(".cell").click(function () {
+                location.href = $(this).find("a").attr("href");
+            })
+        })
+    </script>
 </head>
 <body>
 <div class="nav">
@@ -28,10 +37,9 @@
 <div class="content">
     <table>
         <tr th:each="line : ${lineList}">
-            <td  th:each="cell : ${line} "
-                 th:style=" 'background:url('+@{${cell.backgroudImg}}+');background-size:100%100%' "
-                 th:text="${cell.title}">
-                <a th:href="@{${cell.link}">1231</a>
+            <td  class = "cell" th:each="cell : ${line} "
+                 th:style=" 'background:url('+@{${cell.backgroudImg}}+');background-size:100%100%' ">
+                <a href="#" th:href="@{${cell.link}}" th:text="${cell.title}"></a>
             </td>
         </tr>
     </table>

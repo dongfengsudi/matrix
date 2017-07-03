@@ -47,3 +47,7 @@
     border-radius: 10px;
     margin: 10px;
 }
+
+.content table tr td a {
+    color: #fff;
+}

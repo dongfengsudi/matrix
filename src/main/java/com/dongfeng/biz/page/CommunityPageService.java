@@ -17,7 +17,7 @@ public class CommunityPageService {
     public CommunityPageDO getPage() {
 
         List<CommunityCellDO> line1 = new ArrayList<>();
-        CommunityCellDO cell1 = new CommunityCellDO("金葵一居","http://upload.gezila.com/data/20160912/25941473646354.jpg","https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3OTE2OTg2NQ==&scene=124#wechat_redirect");
+        CommunityCellDO cell1 = new CommunityCellDO("金葵一居","http://upload.gezila.com/data/20160912/25941473646354.jpg","weixin://profile/gh_93431c4b9a00");
         CommunityCellDO cell2 = new CommunityCellDO("金葵二居","http://pic1.ooopic.com/uploadfilepic/sheji/2010-01-27/OOOPIC_WHMH_201001275a57897b2805f548.jpg","https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NDkxMTgyNw==&scene=124#wechat_redirect");
         line1.add(cell1);
         line1.add(cell2);

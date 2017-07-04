@@ -48,4 +48,10 @@ public class MainController {
         return "community_page";
     }
 
+    @RequestMapping("test")
+    public String test(Model model) {
+        return "test";
+    }
+
+
 }

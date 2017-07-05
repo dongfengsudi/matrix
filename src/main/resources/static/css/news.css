@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     position: relative;
+    /*text-align: center;*/
 }
 
 .slide-wrap .slider {
@@ -30,9 +31,10 @@
 }
 
 .slide-wrap #slideposition {
+    width: 10%;
     position: absolute;
     bottom: 10px;
-    left: 50%;
+    left: 45%;
 }
 
 .slide-wrap #slideposition .indicator {

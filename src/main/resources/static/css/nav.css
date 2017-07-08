@@ -1,0 +1,25 @@
+.nav-target{
+    color :#0062D7;
+}
+.nav {
+    margin-top: 10px;
+    height: 6%;
+}
+.nav .title div {
+    float: left;
+    width: 33%;
+    height:50%;
+    text-align:center;
+}
+.nav .line div {
+    float: left;
+    width: 33%;
+    height:50%;
+    text-align:center;
+}
+.line hr {
+    height:1px;
+    border:none;
+    border-top: 2px solid #0062D7;
+    width: 70px;
+}

@@ -23,7 +23,13 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String root() {
+    public String root(Model model) {
+        CommunityPageDO communityPageDO = communityPageService.getPage();
+        if (communityPageDO == null) {
+            return "error";
+        }
+        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        model.addAttribute("lineList",lineList);
         return "index";
     }
 

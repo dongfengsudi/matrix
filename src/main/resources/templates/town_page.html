@@ -1,142 +1,68 @@
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
-    <link href="../static/css/common.css" rel="stylesheet" type="text/css"/>
-    <link href="../static/css/community_page.css" rel="stylesheet" type="text/css"/>
-    <!--<link href="../static/css/com.css" rel="stylesheet" type="text/css"/>-->
-    <link rel="stylesheet" type="text/css" href="../static/css/public.css" />
-    <link href="../static/css/news.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="../static/css/idangerous.swiper.css" type="text/css" />
-    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="../static/js/touchSwipe-slide.js"></script>
-    <script type="text/javascript" src="../static/js/public.js"></script>
-    <title>今日金桥微信矩阵</title>
-</head>
-<body>
-<div class="nav">
-    <table>
-        <tr>
-            <td><a>市区信息</a></td>
-            <td class="nav-target"><a>镇级条线</a></td>
-            <td><a>基层社区</a></td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <div>
-                    <hr style="height:1px;border:none;border-top:2px solid #0062D7; width:70px"/>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<town-page>
+    <div class="top-pic swiper-container" id="town-page-swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/11/6d5dc5335c5b_w640_h375_.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/10/0cc3237607e8_w640_h375_.jpg"/>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="text-context">
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/12/da6da4e32944_w180_h180_.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    一张霸气
                 </div>
-            </td>
-            <td>
-            </td>
-        </tr>
-    </table>
-</div>
-<div>
-    <div>
-        <div class="slide-wrap">
-            <ul class="slider">
-                <li class="slide-list">
-                    <a  href="">
-                        <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/11/6d5dc5335c5b_w640_h375_.jpg" class="slider" alt=""/></a>
-                </li>
-                <li class="slide-list">
-                    <a  href="">
-                        <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/10/0cc3237607e8_w640_h375_.jpg" class="slider" alt=""/></a>
-                </li>
-            </ul>
+                <div class="desc">
+                    世界上最长的办公桌
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
+        </div>
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/11/79cce2a8b523_w180_h180_.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    社交软件
+                </div>
+                <div class="desc">
+                    软件卸了，人也就散了
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
+        </div>
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://img.chunyu.mobi/media/images/2013/08/14/ac2212145e06.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    追击引
+                </div>
+                <div class="desc">
+                    追击引发痘痘的13个罪犯
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
         </div>
     </div>
-
-    <div></div>
-    <div class="item-wrap">
-        <a  href="">
-            <dl class="item-list">
-                <dd class="item-img">
-                    <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/12/da6da4e32944_w180_h180_.jpg" alt=""/>
-                </dd>
-                <dt class="item-title"> 一张霸气长桌搞定整个公司所有工位</dt>
-                <dd class="item-article">世界上最长的办公桌。</dd>
-            </dl>
-            <dl class="item-list" style="line-height: 80px;text-align: center;width: 20%;float: left;">
-                <dd>
-                    <img style="width:90px;" onclick="window.open('www.baidu.com')" src="../static/images/20170705225942.png"/>
-                </dd>
-            </dl>
-        </a>
-        <a  href="">
-            <dl class="item-list">
-                <dd class="item-img">
-                    <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/11/79cce2a8b523_w180_h180_.jpg" alt=""/>
-                </dd>
-                <dt class="item-title"> 社交软件，只爱陌生人？</dt>
-                <dd class="item-article">软件卸了，人也就散了。</dd>
-            </dl>
-        </a>
-        <a  href="">
-            <dl class="item-list">
-                <dd class="item-img">
-                    <img src="http://img.chunyu.mobi/media/images/2013/08/14/ac2212145e06.jpg" alt=""/>
-                </dd>
-                <dt class="item-title"> 追击引发痘痘的13个罪犯</dt>
-                <dd class="item-article">追击引发痘痘的13个罪犯</dd>
-            </dl>
-        </a>
-        <a  href="">
-            <dl class="item-list">
-                <dd class="item-img">
-                    <img src="http://media2.chunyuyisheng.com/@/media/images/2014/05/20/fdc507440a00.jpg" alt=""/>
-                </dd>
-                <dt class="item-title"> 健康信息图：痤疮治疗的关键信息！</dt>
-                <dd class="item-article">如何搞掉青春痘！痤疮治疗的关键信息！</dd>
-            </dl>
-        </a>
-        <a  href="">
-            <dl class="item-list">
-                <dd class="item-img">
-                    <img src="http://media2.chunyuyisheng.com/@/media/images/2013/11/02/84b98ba47526.jpg" alt=""/>
-                </dd>
-                <dt class="item-title"> 各种饮料饮料喝多少才恰当？</dt>
-                <dd class="item-article"></dd>
-            </dl>
-        </a>
-    </div>
-
-    <!--  循环显示子频道 -->
-    <!-- <div class="channel_name">
-          <div class="channel_name_icon"><img src="wap/images/channel_name_icon.jpg" /></div>
-           <div class="channel_name_text"><美容</div>
-         </div> -->
-    <div class="block">
-
-        <!-- 显示每个子频道的推荐位 -->
-        <div>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- 显示每个子频道的推荐位 -->
-
-</body>
-
+</town-page>
 </html>
-    <script>
-        // 轮播图
-        $(".slider").simpleSlider({
-            slides:".slide-list",
-            swipe:true,
-            slideTracker:true,
-            slideTrackerId:"slideposition",
-            slideOnInterval:true,
-            interval:3000,
-            animateDuration:600,
-            animateEasing:"easeInOut",
-            pauseOnHover:false
-        });
-    </script>
+

@@ -1,32 +1,3 @@
-/******** top *******/
-.top {
-    height: 6%;
-    background: #333333;
-}
-.top div {
-    color: #fff;
-    text-align:center;
-    padding-top: 2%;
-}
-
-/******** nav *******/
-.nav {
-    height: 8%;
-    margin-top: 10px;
-}
-.nav-target {
-    color: #0062D7;
-}
-.nav table {
-    width: 100%;
-    align: center;
-}
-.nav table tr {
-    text-align:center;
-}
-.nav span {
-    width :200px;
-}
 
 /****** content *********/
 .content {

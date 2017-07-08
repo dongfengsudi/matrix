@@ -1,342 +1,71 @@
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
-    <link rel="stylesheet" href="../static/css/example.css"/>
-    <link href="../static/css/common.css" rel="stylesheet" type="text/css"/>
-    <link href="../static/css/community_page.css" rel="stylesheet" type="text/css"/>
-    <link href="../static/css/news.css" rel="stylesheet" type="text/css"/>
-    <link href="../static/css/news.css" rel="stylesheet" type="text/css"/>
-    <title>今日金桥微信矩阵</title>
-</head>
-<body>
-<div class="nav">
-    <table>
-        <tr>
-            <td class="nav-target">市区信息</td>
-            <td>镇级条线</td>
-            <td>基层社区</td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <hr style="height:1px;border:none;border-top:2px solid #0062D7; width:70px"/>
-                </div>
-            </td>
-            <td></td>
-            <td>
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="slides">
-    <img src="../static/images/example-slide-1.jpg"/>
-    <img src="../static/images/example-slide-2.jpg"/>
-    <img src="../static/images/example-slide-3.jpg"/>
-    <img src="../static/images/example-slide-4.jpg"/>
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
-<div class="item-wrap">
-    <a  href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/12/da6da4e32944_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title"> 一张霸气长桌搞定整个公司所有工位</dt>
-            <dd class="item-article">世界上最长的办公桌。</dd>
-        </dl>
-    </a>
-    <a  href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://media2.chunyuyisheng.com/@/media/images/2015/02/11/79cce2a8b523_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title"> 社交软件，只爱陌生人？</dt>
-            <dd class="item-article">软件卸了，人也就散了。</dd>
-        </dl>
-    </a>
-    <a  href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://img.chunyu.mobi/media/images/2013/08/14/ac2212145e06.jpg" alt=""/>
-            </dd>
-            <dt class="item-title"> 追击引发痘痘的13个罪犯</dt>
-            <dd class="item-article">追击引发痘痘的13个罪犯</dd>
-        </dl>
-    </a>
-    <a  href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://media2.chunyuyisheng.com/@/media/images/2014/05/20/fdc507440a00.jpg" alt=""/>
-            </dd>
-            <dt class="item-title"> 健康信息图：痤疮治疗的关键信息！</dt>
-            <dd class="item-article">如何搞掉青春痘！痤疮治疗的关键信息！</dd>
-        </dl>
-    </a>
-    <a  href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://media2.chunyuyisheng.com/@/media/images/2013/11/02/84b98ba47526.jpg" alt=""/>
-            </dd>
-            <dt class="item-title"> 各种饮料饮料喝多少才恰当？</dt>
-            <dd class="item-article"></dd>
-        </dl>
-    </a>
-</div>
-
-<!--  循环显示子频道 -->
-<!-- <div class="channel_name">
-      <div class="channel_name_icon"><img src="wap/images/channel_name_icon.jpg" /></div>
-       <div class="channel_name_text"><美容</div>
-     </div> -->
-<div class="block">
-
-    <!-- 显示每个子频道的推荐位 -->
-    <div>
+<city-page>
+    <div class="top-pic swiper-container" id="city-page-swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://gd1.alicdn.com/imgextra/i2/790599367/TB2tz36h3FkpuFjSspnXXb4qFXa_!!790599367.jpg_400x400.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://gd3.alicdn.com/imgextra/i2/0/TB1SAQnNFXXXXaYaXXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img.alicdn.com/bao/uploaded/i4/TB1HCdJRVXXXXcEaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"/>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
-
-</div>
-
-
-<!-- 直接从news表中显示最新新闻 -->
-
-
-<div class="item-wrap">
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2016/01/07/0f29256476c8_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">你和肤白貌美 只差一个光子嫩肤</dt>
-            <dd class="item-article">别说男人都是视觉动物，就连我们自己都是大写的颜控，为了你能肤白貌美，小编特意为你献上顶级整形医院--八大处整形...</dd>
-        </dl>
-    </a>
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2015/12/30/57a25fd0565d_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">护肤的八大误区，你中了几个？</dt>
-            <dd class="item-article">你有想过你的护肤方法到底正不正确吗？还是只是惯性的每日做着护理的工作？其实，如果是错误的护肤方法，不仅不会改善...</dd>
-        </dl>
-    </a>
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2016/01/07/0f29256476c8_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">你和肤白貌美 只差一个光子嫩肤</dt>
-            <dd class="item-article">别说男人都是视觉动物，就连我们自己都是大写的颜控，为了你能肤白貌美，小编特意为你献上顶级整形医院--八大处整形...</dd>
-        </dl>
-    </a>
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2015/12/30/57a25fd0565d_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">护肤的八大误区，你中了几个？</dt>
-            <dd class="item-article">你有想过你的护肤方法到底正不正确吗？还是只是惯性的每日做着护理的工作？其实，如果是错误的护肤方法，不仅不会改善...</dd>
-        </dl>
-    </a>
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2016/01/07/0f29256476c8_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">你和肤白貌美 只差一个光子嫩肤</dt>
-            <dd class="item-article">别说男人都是视觉动物，就连我们自己都是大写的颜控，为了你能肤白貌美，小编特意为你献上顶级整形医院--八大处整形...</dd>
-        </dl>
-    </a>
-    <a href="">
-        <dl class="item-list">
-            <dd class="item-img">
-                <img src="http://dn-chunyu.qbox.me/@/media/images/2015/12/30/57a25fd0565d_w180_h180_.jpg" alt=""/>
-            </dd>
-            <dt class="item-title">护肤的八大误区，你中了几个？</dt>
-            <dd class="item-article">你有想过你的护肤方法到底正不正确吗？还是只是惯性的每日做着护理的工作？其实，如果是错误的护肤方法，不仅不会改善...</dd>
-        </dl>
-    </a>
-    <div class="clear"></div>
-    <div class="more" id="more"><a href="lm.html?id=33">查看更多</a></div></div>
-
-
-<div>
-
-</div>
-
-</body>
-
+    <div class="text-context">
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://tx.haiqq.com/uploads/allimg/150327/21033Q619-6.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    上海信息
+                </div>
+                <div class="desc">
+                    关注上海每一天的最新动态
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
+        </div>
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://tx.haiqq.com/uploads/allimg/150327/21033Q619-6.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    上海信息
+                </div>
+                <div class="desc">
+                    关注上海每一天的最新动态
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
+        </div>
+        <div class="one-line">
+            <div class = "account-pic">
+                <img src="http://tx.haiqq.com/uploads/allimg/150327/21033Q619-6.jpg" />
+            </div>
+            <div class="account-info">
+                <div class="title">
+                    上海信息
+                </div>
+                <div class="desc">
+                    关注上海每一天的最新动态
+                </div>
+            </div>
+            <div class="account-follow">
+                <img src="../static/images/20170705225942.png"/>
+            </div>
+        </div>
+    </div>
+</city-page>
 </html>
 
-<script src="../static/js/jquery-1.9.1.min.js"></script>
-<script src="../static/js/jquery.slides.min.js"></script>
-<script>
-    $(function () {
-        $('#slides').slidesjs({
-            width: 940,
-            height: 528,
-            play: {
-//                active: true,
-                auto: true,
-                interval: 2000,
-//                swap: true
-            }
-        });
-    });
-</script>
-
-<style>
-    body {
-        -webkit-font-smoothing: antialiased;
-        font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #232525;
-        padding-top: 70px;
-        background-color: #eee;
-    }
-
-    #slides {
-        display: none
-    }
-
-    #slides .slidesjs-navigation {
-        margin-top: 5px;
-    }
-
-    a.slidesjs-next,
-    a.slidesjs-previous,
-    a.slidesjs-play,
-    a.slidesjs-stop {
-        background-image: url(../static/images/btns-next-prev.png);
-        background-repeat: no-repeat;
-        display: block;
-        width: 12px;
-        height: 18px;
-        overflow: hidden;
-        text-indent: -9999px;
-        float: left;
-        margin-right: 5px;
-    }
-
-    a.slidesjs-next {
-        margin-right: 10px;
-        background-position: -12px 0;
-    }
-
-    a:hover.slidesjs-next {
-        background-position: -12px -18px;
-    }
-
-    a.slidesjs-previous {
-        background-position: 0 0;
-    }
-
-    a:hover.slidesjs-previous {
-        background-position: 0 -18px;
-    }
-
-    a.slidesjs-play {
-        width: 15px;
-        background-position: -25px 0;
-    }
-
-    a:hover.slidesjs-play {
-        background-position: -25px -18px;
-    }
-
-    a.slidesjs-stop {
-        width: 18px;
-        background-position: -41px 0;
-    }
-
-    a:hover.slidesjs-stop {
-        background-position: -41px -18px;
-    }
-
-    .slidesjs-pagination {
-        margin: 7px 0 0;
-        float: right;
-        list-style: none;
-    }
-
-    .slidesjs-pagination li {
-        float: left;
-        margin: 0 1px;
-    }
-
-    .slidesjs-pagination li a {
-        display: block;
-        width: 13px;
-        height: 0;
-        padding-top: 13px;
-        background-image: url(../static/images/pagination.png);
-        background-position: 0 0;
-        float: left;
-        overflow: hidden;
-    }
-
-    .slidesjs-pagination li a.active,
-    .slidesjs-pagination li a:hover.active {
-        background-position: 0 -13px
-    }
-
-    .slidesjs-pagination li a:hover {
-        background-position: 0 -26px
-    }
-
-    #slides a:link,
-    #slides a:visited {
-        color: #333
-    }
-
-    #slides a:hover,
-    #slides a:active {
-        color: #9e2020
-    }
-
-    .navbar {
-        overflow: hidden
-    }
-</style>
-
-<style>
-    #slides {
-        display: none
-    }
-
-    .container {
-        margin: 0 auto
-    }
-
-    /* For tablets  smart phones */
-    @media (max-width: 767px) {
-        body {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .container {
-            width: auto
-        }
-    }
-
-    /* For smartphones */
-    @media (max-width: 480px) {
-        .container {
-            width: auto
-        }
-    }
-
-    /* For smaller displays like laptops */
-    @media (min-width: 768px) and (max-width: 979px) {
-        .container {
-            width: 750px
-        }
-    }
-
-    /* For larger displays */
-    @media (min-width: 980px) and (min-width: 1200px) {
-        .container {
-            width: 940px
-        }
-    }
-</style>

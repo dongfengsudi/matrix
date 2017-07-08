@@ -1,11 +1,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
+<!--
+https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NDkxMTgyNw==&scene=124#wechat_redirect
+-->
+
 <town-page>
     <div class="top-pic swiper-container" id="town-page-swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
+                <a  href="#"
+                    th:href="@{https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MjM5NDkxMTgyNw==&amp;scene=124#wechat_redirect}">
                 <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/11/6d5dc5335c5b_w640_h375_.jpg"/>
+                </a>
             </div>
             <div class="swiper-slide">
                 <img src="http://media2.chunyuyisheng.com/@/media/images/2014/11/10/0cc3237607e8_w640_h375_.jpg"/>
@@ -27,7 +34,9 @@
                 </div>
             </div>
             <div class="account-follow">
+                <a th:href="@{https://www.baidu.com}">
                 <img src="../static/images/20170705225942.png"/>
+                </a>
             </div>
         </div>
         <div class="one-line">

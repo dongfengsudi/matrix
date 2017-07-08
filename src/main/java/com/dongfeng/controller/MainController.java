@@ -50,6 +50,13 @@ public class MainController {
 
     @RequestMapping("test")
     public String test(Model model) {
+        CommunityPageDO communityPageDO = communityPageService.getPage();
+        if (communityPageDO == null) {
+            return "error";
+        }
+        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        model.addAttribute("lineList",lineList);
+
         return "test";
     }
 

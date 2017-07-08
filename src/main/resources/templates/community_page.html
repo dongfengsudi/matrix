@@ -1,39 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
-    <link href="../static/css/common.css" rel="stylesheet" type="text/css" />
-    <link href="../static/css/community_page.css"  rel="stylesheet" type="text/css" />
-    <title>今日金桥微信矩阵</title>
-
-    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
-    <script language="JavaScript">
-        $(function () {
-            $(".cell").click(function () {
-                location.href = $(this).find("a").attr("href");
-            })
-        })
-    </script>
-</head>
-<body>
-<div class="nav">
-    <table>
-        <tr>
-            <td><a href="city_page.html">市区信息</a></td>
-            <td><a href="town_page.html">镇级条线</a></td>
-            <td class="nav-target">基层社区</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>
-                <div><hr style="height:1px;border:none;border-top:2px solid #0062D7; width:70px" /></div>
-            </td>
-        </tr>
-
-    </table>
-</div>
+<community-page>
 <div class="content">
     <table>
         <tr th:each="line : ${lineList}">
@@ -44,12 +11,5 @@
         </tr>
     </table>
 </div>
-
-
-<div>
-
-</div>
-
-</body>
-
+</community-page>
 </html>

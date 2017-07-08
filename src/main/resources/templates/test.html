@@ -29,6 +29,7 @@
                 <city-page th:replace="city_page"></city-page>
             </div>
             <div class="swiper-slide">
+                <town-page th:replace="town_part"></town-page>
             </div>
             <div class="swiper-slide ">
                 <community-page th:replace="community_page"></community-page>
@@ -62,11 +63,18 @@
             })
         })
 
-        var cityPageSwiper = new Swiper('#city-page-swiper-container', {
+        new Swiper('#city-page-swiper-container', {
             pagination : '.swiper-pagination',
             paginationType : 'bullets',
             loop : true,
         })
+
+        new Swiper('#town-page-swiper-container', {
+            pagination : '.swiper-pagination',
+            paginationType : 'bullets',
+            loop : true,
+        })
+
 
     </script>
 

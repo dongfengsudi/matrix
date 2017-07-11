@@ -22,16 +22,27 @@
 </head>
 <body>
 <div>
-    <nav th:replace="nav :: nav"></nav>
+    <div class = "nav">
+        <div class="title">
+            <div class="nav-target nav-city">市区信息</div>
+            <div class="nav-town">镇级条线</div>
+            <div class="nav-community">基层社区</div>
+        </div>
+        <div class="line">
+            <div><hr /></div>
+            <div><hr style="visibility:hidden" /></div>
+            <div ><hr style="visibility:hidden" /></div>
+        </div>
+    </div>
     <div class="swiper-container" id="all-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-hash="slide-city">
                 <city-page th:replace="city_page"></city-page>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-hash="slide-town">
                 <town-page th:replace="town_page"></town-page>
             </div>
-            <div class="swiper-slide ">
+            <div class="swiper-slide " data-hash="slide-community">
                 <community-page th:replace="community_page"></community-page>
             </div>
         </div>
@@ -39,29 +50,55 @@
 </div>
 
 <script>
+
+    function toTargetNav(targetIndex) {
+        $(".title >div").each(function (i) {
+            if (i==targetIndex) {
+                $(this).addClass("nav-target")
+            } else {
+                $(this).removeClass("nav-target")
+            }
+        });
+        $(".line > div").each(function (i) {
+            if (i==targetIndex) {
+                this.firstChild.style.visibility="visible";
+            } else {
+                this.firstChild.style.visibility="hidden";
+            }
+        });
+    }
+
     var mySwiper = new Swiper('#all-container', {
+        hashnav:true,
         onTransitionEnd: function(swiper){
-            $(".title >div").each(function (i) {
-                if (i==swiper.activeIndex) {
-                    $(this).addClass("nav-target")
-                } else {
-                    $(this).removeClass("nav-target")
-                }
-            });
-            $(".line > div").each(function (i) {
-                if (i==swiper.activeIndex) {
-                    this.firstChild.style.visibility="visible";
-                } else {
-                    this.firstChild.style.visibility="hidden";
-                }
-            });
+            toTargetNav(swiper.activeIndex);
         }
     })
     $(function () {
         $(".cell").click(function () {
             location.href = $(this).find("a").attr("href");
         })
+    });
+
+    $(".title >div").each(function (i) {
+        $(this).click(function () {
+            mySwiper.slideTo(i, 500, false);
+            toTargetNav(i);
+        })
     })
+    /*
+    $(".nav-city").click(function () {
+        mySwiper.slideTo(0, 500, false);
+        toTargetNav(0);
+    });
+    $(".nav-town").click(function () {
+        mySwiper.slideTo(1, 500, false);
+        toTargetNav(1);
+    });
+    $(".nav-community").click(function () {
+        mySwiper.slideTo(2, 500, false);
+        toTargetNav(2);
+    });*/
 
     new Swiper('#city-page-swiper-container', {
         pagination : '.swiper-pagination',

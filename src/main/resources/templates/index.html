@@ -14,9 +14,6 @@
     <style type="text/css">
         .swiper-slide {
         }
-        body{
-            height:1300px;
-        }
     </style>
 
     <title>今日金桥微信矩阵</title>
@@ -38,7 +35,7 @@
     </div>
     <div class="swiper-container" id="all-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" id = "city-page" data-hash="slide-city">
+            <div class="swiper-slide"  data-hash="slide-city">
                 <city-page th:replace="city_page"></city-page>
             </div>
             <div class="swiper-slide" data-hash="slide-town">
@@ -72,6 +69,7 @@
 
     var mySwiper = new Swiper('#all-container', {
         hashnav:true,
+        autoHeight: true, //高度随内容变化
         onTransitionEnd: function(swiper){
             toTargetNav(swiper.activeIndex);
         }

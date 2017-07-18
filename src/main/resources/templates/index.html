@@ -13,7 +13,9 @@
 
     <style type="text/css">
         .swiper-slide {
-            height:80%;
+        }
+        body{
+            height:1200px;
         }
     </style>
 
@@ -36,7 +38,7 @@
     </div>
     <div class="swiper-container" id="all-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" data-hash="slide-city">
+            <div class="swiper-slide" id = "city-page" data-hash="slide-city">
                 <city-page th:replace="city_page"></city-page>
             </div>
             <div class="swiper-slide" data-hash="slide-town">

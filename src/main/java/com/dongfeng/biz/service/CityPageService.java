@@ -9,7 +9,6 @@ import com.dongfeng.biz.vo.BannerVO;
 import com.dongfeng.biz.vo.CityPageVO;
 import com.dongfeng.biz.vo.ItemVO;
 import com.google.common.collect.Lists;
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +48,7 @@ public class CityPageService {
 
 
 
-    private List<BannerVO> getBannerList(@NotNull String identity) {
+    private List<BannerVO> getBannerList(String identity) {
 
         List<BannerDO> bannerDOList = bannerDAO.findByTabIdentity(identity);
         if (CollectionUtils.isEmpty(bannerDOList)) {
@@ -60,7 +59,7 @@ public class CityPageService {
                 .map(BannerVO::from).collect(Collectors.toList());
     }
 
-    private List<ItemVO> getCellList(@NotNull String identity) {
+    private List<ItemVO> getCellList(String identity) {
         List<CellDO> cellDOList = cellDAO.findByTabIdentity(identity);
         if (CollectionUtils.isEmpty(cellDOList)) {
             return Lists.newArrayList();

@@ -1,8 +1,10 @@
 package com.dongfeng.controller.test;
 
+import com.dongfeng.biz.constant.NavTab;
 import com.dongfeng.biz.data.BannerDO;
+import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.repository.BannerRepository;
-import com.dongfeng.biz.repository.T1Repository;
+import com.dongfeng.biz.repository.CellRepository;
 import io.vavr.control.Try;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +22,47 @@ import java.util.Date;
 public class TestController {
 
     @Resource
-    private T1Repository t1Repository;
-
-    @Resource
     private BannerRepository bannerRepository;
 
+    @Resource
+    private CellRepository cellRepository;
+
+    @RequestMapping("/cell/insert.htm")
+    public String insertCell(@RequestParam(value="title") String title,
+                             @RequestParam(value="img") String img,
+                             @RequestParam(value="link") String link,
+                             @RequestParam(value="desc") String desc) {
+
+        CellDO cellDO = new CellDO();
+
+        cellDO.setDeleted((byte) 0);
+        cellDO.setGmtCreate(new Date());
+        cellDO.setGmtModified(new Date());
+
+        cellDO.setTitle(title);
+        cellDO.setBackgroundImg(img);
+        cellDO.setLink(link);
+        cellDO.setDescription(desc);
+        cellDO.setTabIdentity(NavTab.COMMUNITY.getIdentity());
+
+        Try<CellDO> tryResult = Try.of(() -> cellRepository.save(cellDO));
+        if (tryResult.isSuccess()) {
+            return "success";
+        } else {
+            tryResult.onFailure(e -> {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            });
+            return "fail";
+        }
+
+    }
+
+
+
+
     @RequestMapping("/banner/insert.htm")
-    public String insertData(@RequestParam(value="pic") String pic,
+    public String insertBanner(@RequestParam(value="pic") String pic,
                              @RequestParam(value="link") String link,
                              @RequestParam(value="identity") String identity) {
 

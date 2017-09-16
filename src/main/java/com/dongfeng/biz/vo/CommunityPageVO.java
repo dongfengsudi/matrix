@@ -1,6 +1,5 @@
 package com.dongfeng.biz.vo;
 
-import com.dongfeng.biz.data.CommunityCellDO;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +10,6 @@ import java.util.List;
  */
 @Data
 public class CommunityPageVO {
-    private List<List<CommunityCellDO>> lineList;
+    private List<List<CommunityCellVO>> lineList;
 
 }

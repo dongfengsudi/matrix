@@ -5,6 +5,7 @@ import com.dongfeng.biz.data.BannerDO;
 import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.repository.BannerRepository;
 import com.dongfeng.biz.repository.CellRepository;
+import com.dongfeng.biz.utils.UrlUtils;
 import io.vavr.control.Try;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,9 @@ public class TestController {
                              @RequestParam(value="desc") String desc) {
 
         CellDO cellDO = new CellDO();
+
+        img = UrlUtils.urldecode(img);
+        link = UrlUtils.urldecode(link);
 
         cellDO.setDeleted((byte) 0);
         cellDO.setGmtCreate(new Date());

@@ -8,70 +8,36 @@ https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NDkxMTgyNw==&scene
 <town-page>
     <div class="top-pic swiper-container" id="town-page-swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <a  href="#"
-                    th:href="@{http://mp.weixin.qq.com/s/euVRa1p-Ga-5lezUZIvFmQ}">
-                <img src="http://i1.buimg.com/601291/949656cd2e6e6f6f.png"/>
-                </a>
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide" th:each="banner : ${townPage.bannerVOList}">
+                    <a th:href="@{${banner.url}}">
+                        <img src = "#" th:src="@{${banner.img}}"/>
+                    </a>
+                </div>
+
             </div>
-            <div class="swiper-slide">
-                <a  href="#"
-                    th:href="@{http://mp.weixin.qq.com/s/PysLmTAy1515-EvgNgNuXw}">
-                    <img src="http://i1.buimg.com/601291/7c6aaf050d2a78e5.png"/>
-                </a>
-            </div>
+
         </div>
         <div class="swiper-pagination"></div>
     </div>
     <div class="text-context">
-        <div class="one-line">
+        <div class="one-line" th:each="item : ${townPage.itemVOList}">
             <div class = "account-pic">
-                <img src="http://i1.buimg.com/601291/edb3412270393bact.jpg" />
+                <img th:src="@{${item.img}}" />
             </div>
             <div class="account-info">
-                <div class="title">
+                <div class="title" th:text="${item.title}">
                     智慧养老
                 </div>
-                <div class="desc">
+                <div class="desc" th:text="${item.description}">
                 </div>
             </div>
             <div class="account-follow">
-                <a th:href="@{https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzAxMzc4ODk4Nw==&amp;scene=124#wechat_redirect}">
-                <img src="../static/images/20170705225942.png"/>
-                </a>
-            </div>
-        </div>
-        <div class="one-line">
-            <div class = "account-pic">
-                <img src="http://i1.buimg.com/601291/d77c9e2fb618acb1t.jpg" />
-            </div>
-            <div class="account-info">
-                <div class="title">
-                    平安金桥
-                </div>
-                <div class="desc">
-                </div>
-            </div>
-            <div class="account-follow">
-                <a th:href="@{https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzIwMjg0Mzk0OA==&amp;scene=124#wechat_redirect}">
-                    <img src="../static/images/20170705225942.png"/>
-                </a>
-            </div>
-        </div>
-        <div class="one-line">
-            <div class = "account-pic">
-                <img src="http://i1.buimg.com/601291/2f8996b1d790d455t.jpg" />
-            </div>
-            <div class="account-info">
-                <div class="title">
-                    金桥微事务
-                </div>
-                <div class="desc">
-                </div>
-            </div>
-            <div class="account-follow">
-                <a th:href="@{https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzIwNzcxMzgzNA==&amp;scene=124#wechat_redirect}">
-                    <img src="../static/images/20170705225942.png"/>
+                <a  href="#"
+                    th:href="@{${item.followLink}}">
+                    <img src="../static/images/20170705225942.png"/> <!-- 关注图片 -->
                 </a>
             </div>
         </div>

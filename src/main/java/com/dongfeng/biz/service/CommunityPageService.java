@@ -1,13 +1,12 @@
 package com.dongfeng.biz.service;
 
 import com.dongfeng.biz.constant.NavTab;
+import com.dongfeng.biz.dao.CellDAO;
 import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.repository.CellRepository;
 import com.dongfeng.biz.utils.ArrayUtils;
 import com.dongfeng.biz.vo.CommunityCellVO;
 import com.dongfeng.biz.vo.CommunityPageVO;
-import com.google.common.collect.Lists;
-import io.vavr.control.Try;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -24,17 +23,14 @@ import java.util.stream.Collectors;
 public class CommunityPageService {
 
     @Resource
+    private CellDAO cellDAO;
+
+    @Resource
     private CellRepository cellRepository;
 
     public List<CellDO> getCommunityCell() {
-        return this.getCellByIdentity(NavTab.COMMUNITY.getIdentity());
+        return cellDAO.findByTabIdentity((NavTab.COMMUNITY.getIdentity()));
     }
-
-    private List<CellDO> getCellByIdentity(String identity) {
-        Try<List<CellDO>> tryResult = Try.of(() -> cellRepository.findByTabIdentity(identity));
-        return tryResult.onFailure(e -> e.printStackTrace()).getOrElse(Lists.newArrayList());
-    }
-
 
     public CommunityPageVO getPage() {
 

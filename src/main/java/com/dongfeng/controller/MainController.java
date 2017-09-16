@@ -1,8 +1,11 @@
 package com.dongfeng.controller;
 
+import com.dongfeng.biz.constant.NavTab;
+import com.dongfeng.biz.service.CityPageService;
+import com.dongfeng.biz.service.CommunityPageService;
+import com.dongfeng.biz.vo.CityPageVO;
 import com.dongfeng.biz.vo.CommunityCellVO;
 import com.dongfeng.biz.vo.CommunityPageVO;
-import com.dongfeng.biz.service.CommunityPageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +24,10 @@ public class MainController {
     @Resource
     private CommunityPageService communityPageService;
 
+    @Resource
+    private CityPageService cityPageService;
+
+
     @GetMapping("/")
     public String root(Model model) {
         CommunityPageVO communityPageDO = communityPageService.getPage();
@@ -36,7 +43,9 @@ public class MainController {
     public String login() { return "login"; }
 
     @RequestMapping("/city_page")
-    public String cityPage() {
+    public String cityPage(Model model) {
+        CityPageVO cityPageVO = cityPageService.getCityPage(NavTab.CITY);
+        model.addAttribute("cityPage",cityPageVO);
         return "city_page";
     }
 

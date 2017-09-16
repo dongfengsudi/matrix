@@ -15,11 +15,12 @@ import java.util.Date;
 @Entity
 @Table(name = "banner")
 @Data
-public class BannerDO {
+public class BannerDO extends BaseDO{
 
     @Id
     @GeneratedValue
     private long id;
+
     private Date gmtCreate;
     private Date gmtModified;
     private byte deleted;

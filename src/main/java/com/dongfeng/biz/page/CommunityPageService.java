@@ -1,7 +1,7 @@
 package com.dongfeng.biz.page;
 
 import com.dongfeng.biz.data.CommunityCellDO;
-import com.dongfeng.biz.data.CommunityPageDO;
+import com.dongfeng.biz.vo.CommunityPageVO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class CommunityPageService {
 
-    public CommunityPageDO getPage() {
+    public CommunityPageVO getPage() {
 
         List<CommunityCellDO> line1 = new ArrayList<>();
         CommunityCellDO cell1 = new CommunityCellDO("张桥","http://i1.buimg.com/601291/f2b85ae2fa811fb1t.jpg","#");
@@ -67,7 +67,7 @@ public class CommunityPageService {
         lineList.add(line6);
         lineList.add(line7);
 
-        CommunityPageDO communityPageDO = new CommunityPageDO();
+        CommunityPageVO communityPageDO = new CommunityPageVO();
         communityPageDO.setLineList(lineList);
 
         return communityPageDO;

@@ -1,7 +1,7 @@
 package com.dongfeng.controller;
 
 import com.dongfeng.biz.data.CommunityCellDO;
-import com.dongfeng.biz.data.CommunityPageDO;
+import com.dongfeng.biz.vo.CommunityPageVO;
 import com.dongfeng.biz.page.CommunityPageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ public class MainController {
 
     @GetMapping("/")
     public String root(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
@@ -47,7 +47,7 @@ public class MainController {
 
     @RequestMapping("community_page")
     public String communityPage(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
@@ -58,7 +58,7 @@ public class MainController {
 
     @RequestMapping("test")
     public String test(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }

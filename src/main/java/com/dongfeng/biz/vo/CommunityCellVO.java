@@ -1,4 +1,4 @@
-package com.dongfeng.biz.data;
+package com.dongfeng.biz.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,8 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class NavDO {
+public class CommunityCellVO {
     private String title;
-    private String link;
-
-
+    private String backgroudImg; // 背景图片
+    private String link; // 链接
 }

@@ -1,8 +1,8 @@
 package com.dongfeng.controller;
 
-import com.dongfeng.biz.data.CommunityCellDO;
-import com.dongfeng.biz.data.CommunityPageDO;
-import com.dongfeng.biz.page.CommunityPageService;
+import com.dongfeng.biz.vo.CommunityCellVO;
+import com.dongfeng.biz.vo.CommunityPageVO;
+import com.dongfeng.biz.service.CommunityPageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +23,11 @@ public class MainController {
 
     @GetMapping("/")
     public String root(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
-        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        List<List<CommunityCellVO>> lineList = communityPageDO.getLineList();
         model.addAttribute("lineList",lineList);
         return "index";
     }
@@ -47,22 +47,22 @@ public class MainController {
 
     @RequestMapping("community_page")
     public String communityPage(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
-        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        List<List<CommunityCellVO>> lineList = communityPageDO.getLineList();
         model.addAttribute("lineList",lineList);
         return "community_page";
     }
 
     @RequestMapping("test")
     public String test(Model model) {
-        CommunityPageDO communityPageDO = communityPageService.getPage();
+        CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
-        List<List<CommunityCellDO>> lineList = communityPageDO.getLineList();
+        List<List<CommunityCellVO>> lineList = communityPageDO.getLineList();
         model.addAttribute("lineList",lineList);
 
         return "test";

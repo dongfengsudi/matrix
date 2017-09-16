@@ -33,6 +33,9 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("login")
+    public String login() { return "login"; }
+
     @RequestMapping("/city_page")
     public String cityPage() {
         return "city_page";

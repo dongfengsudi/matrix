@@ -46,9 +46,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("login")
-    public String login() { return "login"; }
-
     /**
      * 单独请求页面会到这个, 如果是 统一请求页面, 是 调用到 root
      * @param model

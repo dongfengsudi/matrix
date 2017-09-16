@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Created by zihan on 2017/9/16.
  */
 public interface UserRepository extends JpaRepository<UserDO, Long> {
-    UserDO findByName(String name);
+    UserDO findByNameAndPassword(String name, String password);
 }

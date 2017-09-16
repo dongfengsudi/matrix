@@ -27,12 +27,12 @@ public class AdminController {
     @Resource
     private CommunityPageService communityPageService;
 
-    @RequestMapping("login")
+    @RequestMapping("admin/login")
     public String root(Model model) {
         return "login";
     }
 
-    @RequestMapping("addlogin")
+    @RequestMapping("admin/addlogin")
     public String addLogin(HttpServletRequest request) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");

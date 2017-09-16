@@ -1,8 +1,9 @@
 package com.dongfeng.biz.repository;
 
 import com.dongfeng.biz.data.BannerDO;
-import com.sun.tools.javac.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * @author muying.xx

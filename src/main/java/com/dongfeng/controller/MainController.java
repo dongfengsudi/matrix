@@ -1,8 +1,11 @@
 package com.dongfeng.controller;
 
+import com.dongfeng.biz.constant.NavTab;
+import com.dongfeng.biz.service.CityPageService;
+import com.dongfeng.biz.service.CommunityPageService;
+import com.dongfeng.biz.vo.CityPageVO;
 import com.dongfeng.biz.vo.CommunityCellVO;
 import com.dongfeng.biz.vo.CommunityPageVO;
-import com.dongfeng.biz.service.CommunityPageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +24,23 @@ public class MainController {
     @Resource
     private CommunityPageService communityPageService;
 
+    @Resource
+    private CityPageService cityPageService;
+
+
     @GetMapping("/")
     public String root(Model model) {
         CommunityPageVO communityPageDO = communityPageService.getPage();
         if (communityPageDO == null) {
             return "error";
         }
+
+        CityPageVO cityPageVO = cityPageService.getCityPage(NavTab.CITY);
+        model.addAttribute("cityPage",cityPageVO);
+
+        CityPageVO townPageVO = cityPageService.getCityPage(NavTab.TOWN);
+        model.addAttribute("townPage",townPageVO);
+
         List<List<CommunityCellVO>> lineList = communityPageDO.getLineList();
         model.addAttribute("lineList",lineList);
         return "index";
@@ -35,8 +49,13 @@ public class MainController {
     @RequestMapping("login")
     public String login() { return "login"; }
 
+    /**
+     * 单独请求页面会到这个, 如果是 统一请求页面, 是 调用到 root
+     * @param model
+     * @return
+     */
     @RequestMapping("/city_page")
-    public String cityPage() {
+    public String cityPage(Model model) {
         return "city_page";
     }
 

@@ -3,6 +3,7 @@ package com.dongfeng.biz.utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * @author muying.xx
@@ -10,7 +11,21 @@ import java.net.URLDecoder;
  */
 public class UrlUtils {
 
-    public static String urldecode(String url) {
+
+    public static String urlEncode(String url) {
+        try {
+            if (StringUtils.isEmpty(url)) {
+                return url;
+            }
+            return URLEncoder.encode(url,"utf-8");
+        }catch (Exception e) {
+
+        }
+        return url;
+    }
+
+
+    public static String urlDecode(String url) {
         try {
             if (StringUtils.isEmpty(url)) {
                 return url;

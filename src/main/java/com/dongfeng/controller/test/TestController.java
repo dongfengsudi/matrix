@@ -36,8 +36,8 @@ public class TestController {
 
         CellDO cellDO = new CellDO();
 
-        img = UrlUtils.urldecode(img);
-        link = UrlUtils.urldecode(link);
+        img = UrlUtils.urlDecode(img);
+        link = UrlUtils.urlDecode(link);
 
         cellDO.setDeleted((byte) 0);
         cellDO.setGmtCreate(new Date());

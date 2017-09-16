@@ -21,7 +21,6 @@ public class MainController {
     @Resource
     private CommunityPageService communityPageService;
 
-
     @GetMapping("/")
     public String root(Model model) {
         CommunityPageDO communityPageDO = communityPageService.getPage();

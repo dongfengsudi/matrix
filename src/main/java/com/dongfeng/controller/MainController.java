@@ -34,6 +34,13 @@ public class MainController {
         if (communityPageDO == null) {
             return "error";
         }
+
+        CityPageVO cityPageVO = cityPageService.getCityPage(NavTab.CITY);
+        model.addAttribute("cityPage",cityPageVO);
+
+        CityPageVO townPageVO = cityPageService.getCityPage(NavTab.TOWN);
+        model.addAttribute("townPage",townPageVO);
+
         List<List<CommunityCellVO>> lineList = communityPageDO.getLineList();
         model.addAttribute("lineList",lineList);
         return "index";
@@ -42,10 +49,13 @@ public class MainController {
     @RequestMapping("login")
     public String login() { return "login"; }
 
+    /**
+     * 单独请求页面会到这个, 如果是 统一请求页面, 是 调用到 root
+     * @param model
+     * @return
+     */
     @RequestMapping("/city_page")
     public String cityPage(Model model) {
-        CityPageVO cityPageVO = cityPageService.getCityPage(NavTab.CITY);
-        model.addAttribute("cityPage",cityPageVO);
         return "city_page";
     }
 

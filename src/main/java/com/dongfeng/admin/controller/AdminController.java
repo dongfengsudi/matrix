@@ -1,16 +1,20 @@
 package com.dongfeng.admin.controller;
 
 import com.dongfeng.admin.biz.repository.UserRepository;
+import com.dongfeng.admin.biz.service.ManageService;
 import com.dongfeng.admin.contant.PageConstant;
 import com.dongfeng.biz.service.CommunityPageService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @author muying.xx
@@ -22,6 +26,9 @@ public class AdminController {
 
     @Resource
     private UserRepository userRepository;
+
+    @Resource
+    private ManageService manageService;
 
     @Resource
     private CommunityPageService communityPageService;
@@ -60,5 +67,34 @@ public class AdminController {
         return "admin/test";
     }
 
+    @RequestMapping("/addCell")
+    public void addCell(@RequestBody Map<String,Object> reqMap){
+        String title = reqMap.get("title").toString();
+        String back_img = reqMap.get("backgroud_img").toString();
+        String link = reqMap.get("link").toString();
+        String identity = reqMap.get("tab_identity").toString();
+        String desc = reqMap.get("description").toString();
+        manageService.addCell(title,back_img,link,identity,desc);
+    }
+
+    @RequestMapping("/delCell")
+    public void delCell(@RequestBody Map<String, Object> reqMap){
+        int id = Integer.parseInt(reqMap.get("id").toString());
+        manageService.delCell(id);
+    }
+
+    @RequestMapping("/addBanner")
+    public void addBanner(@RequestBody Map<String, Object> reqMap){
+        String picUrl = reqMap.get("pic_url").toString();
+        String link = reqMap.get("link").toString();
+        String tabIdentit = reqMap.get("tab_identity").toString();
+        manageService.addBanner(picUrl,link,tabIdentit);
+    }
+
+    @RequestMapping("/delBanner")
+    public void delBanner(@RequestBody Map<String, Object> reqMap){
+        int id = Integer.parseInt(reqMap.get("id").toString());
+        manageService.delBanner(id);
+    }
 
 }

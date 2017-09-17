@@ -12,6 +12,7 @@ import lombok.NonNull;
 @Data
 public class ItemVO {
 
+    private long id;             // id
     private String title;        // 标题
     private String img;          // 图片链接
     private String description;  // 描述
@@ -22,6 +23,7 @@ public class ItemVO {
 
     public static ItemVO from(@NonNull CellDO cellDO) {
         ItemVO itemVO = new ItemVO();
+        itemVO.id = cellDO.getId();
         itemVO.title = cellDO.getTitle();
         itemVO.img = cellDO.getBackgroundImg();
         itemVO.description = cellDO.getDescription();

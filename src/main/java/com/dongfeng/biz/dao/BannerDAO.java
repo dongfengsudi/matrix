@@ -25,6 +25,13 @@ public class BannerDAO {
         return tryResult.onFailure(e -> e.printStackTrace()).getOrElse(Lists.newArrayList());
     }
 
+    public boolean addBanner(BannerDO bannerDO) {
+        return Try.of(() -> bannerRepository.save(bannerDO)).isSuccess();
+    }
+
+    public BannerDO findOne(long id) {
+        return Try.of(()-> bannerRepository.findOne(id)).getOrElse((BannerDO) null);
+    }
 
 
 }

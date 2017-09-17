@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
 
-    <link rel="stylesheet" type="text/css" href="../static/css/login/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/login/default.css"/>
 
     <!--必要样式-->
-    <link rel="stylesheet" type="text/css" href="../static/css/login/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/login/styles.css"/>
 
 </head>
 <body>
@@ -19,24 +19,24 @@
         <span>账号登录</span>
     </div>
     <div class='login_fields'>
-        <form action="addlogin" method="post">
+        <form action="/admin/tryLogin.do" method="post">
             <div class='login_fields__user'>
                 <div class='icon'>
-                    <img src='../static/images/login/user_icon_copy.png'/>
+                    <img src='../../static/images/login/user_icon_copy.png'/>
                 </div>
                 <input name="username" placeholder='用户名' type='text'/>
                 <div class='validation'>
-                    <img src='../static/images/login/tick.png'/>
+                    <img src='../../static/images/login/tick.png'/>
                 </div>
                 <!--</input>-->
             </div>
             <div class='login_fields__password'>
                 <div class='icon'>
-                    <img src='../static/images/login/lock_icon_copy.png'/>
+                    <img src='../../static/images/login/lock_icon_copy.png'/>
                 </div>
                 <input name="password" placeholder='密码' type='password'/>
                 <div class='validation'>
-                    <img src='../static/images/login/tick.png'/>
+                    <img src='../../static/images/login/tick.png'/>
                 </div>
             </div>
             <div class='login_fields__submit'>
@@ -61,9 +61,9 @@
     <p>认证中...</p>
 </div>
 
-<script type="text/javascript" src='../static/js/login/stopExecutionOnTimeout.js?t=1'></script>
-<script type="text/javascript" src="../static/js/login/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../static/js/login/jquery-ui.min.js"></script>
+<script type="text/javascript" src='../../static/js/login/stopExecutionOnTimeout.js?t=1'></script>
+<script type="text/javascript" src="../../static/js/login/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../static/js/login/jquery-ui.min.js"></script>
 <!--<script>-->
     <!--$('input[type="submit"]').click(function () {-->
         <!---->

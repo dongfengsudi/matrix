@@ -1,5 +1,6 @@
 package com.dongfeng.admin.interceptor;
 
+import com.dongfeng.admin.contant.PageConstant;
 import com.dongfeng.biz.utils.UrlUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -21,13 +22,13 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
         //获取请求的URL
         String url = request.getRequestURI();
 
-        if(url.indexOf("login")>=0){
+        if(url.toLowerCase().indexOf("login")>=0){
             return true;
         }
 
         //获取Session
         HttpSession session = request.getSession();
-        String username = (String)session.getAttribute("username");
+        String username = (String)session.getAttribute(PageConstant.USER_NAME);
 
         if(username != null){
             return true;
@@ -35,7 +36,7 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
 
         String urlEncode = UrlUtils.urlEncode(url);
         //不符合条件的，跳转到登录界面
-        response.sendRedirect("login.htm?url="+urlEncode);
+        response.sendRedirect("login.htm?redirect="+urlEncode);
         return false;
     }
 }

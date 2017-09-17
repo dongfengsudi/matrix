@@ -84,27 +84,60 @@ public class AdminController {
         return "admin/index";
     }
 
+    @RequestMapping("/town.htm")
+    public String town(HttpSession session, Model model) {
+        String username = (String) session.getAttribute(PageConstant.USER_NAME);
+        model.addAttribute("username",username);
+
+        CityPageVO cityPageVO = cityPageService.getCityPage(NavTab.TOWN);
+        model.addAttribute("bannerList",cityPageVO.getBannerVOList());
+        model.addAttribute("itemList",cityPageVO.getItemVOList());
+
+        return "admin/town";
+    }
+
+
+
     @RequestMapping("/cityBannerEdit")
     public String cityBannerEdit(@RequestParam("id") long id,
                                  @RequestParam("img") String img,
                                  @RequestParam("link") String link) {
 
+        BannerDO bannerDO = this.getCommonBanner(id,img,link);
+        bannerDO.setTabIdentity(NavTab.CITY.getIdentity());
+        bannerDAO.addBanner(bannerDO);
+        return "redirect:/admin/index.htm";
+    }
+
+
+    @RequestMapping("/townBannerEdit")
+    public String townBannerEdit(@RequestParam("id") long id,
+                                 @RequestParam("img") String img,
+                                 @RequestParam("link") String link) {
+        BannerDO bannerDO = this.getCommonBanner(id,img,link);
+        bannerDO.setTabIdentity(NavTab.TOWN.getIdentity());
+        bannerDAO.addBanner(bannerDO);
+        return "redirect:/admin/town.htm";
+    }
+
+
+    private BannerDO getCommonBanner(long id, String img, String link) {
         BannerDO bannerDO = bannerDAO.findOne(id);
 
         if (bannerDO == null) {
             bannerDO = new BannerDO();
-            bannerDO.setTabIdentity(NavTab.CITY.getIdentity());
+
             bannerDO.setGmtCreate(new Date());
             bannerDO.setGmtModified(new Date());
         }
-
         bannerDO.setPicUrl(img);
         bannerDO.setLink(link);
-
-        bannerDAO.addBanner(bannerDO);
-
-        return "redirect:/admin/index.htm";
+        return bannerDO;
     }
+
+
+
+
 
     @RequestMapping("/cityCellEdit")
     public String cityCellEdit(@RequestParam("id") long id,
@@ -113,11 +146,32 @@ public class AdminController {
                                @RequestParam("img") String img,
                                @RequestParam("link") String link) {
 
+        CellDO cellDO = this.getCommonCell(id,title,description,img,link);
+        cellDO.setTabIdentity(NavTab.CITY.getIdentity());
+        cellDAO.addCell(cellDO);
+        return "redirect:/admin/index.htm";
+    }
+
+    @RequestMapping("/townCellEdit")
+    public String townCellEdit(@RequestParam("id") long id,
+                               @RequestParam("title") String title,
+                               @RequestParam("description") String description,
+                               @RequestParam("img") String img,
+                               @RequestParam("link") String link) {
+
+        CellDO cellDO = this.getCommonCell(id,title,description,img,link);
+        cellDO.setTabIdentity(NavTab.TOWN.getIdentity());
+        cellDAO.addCell(cellDO);
+        return "redirect:/admin/town.htm";
+    }
+
+
+    private CellDO getCommonCell(long id, String title, String description, String img, String link) {
+
         CellDO cellDO = cellDAO.findOne(id);
 
         if (cellDO == null) {
             cellDO = new CellDO();
-            cellDO.setTabIdentity(NavTab.CITY.getIdentity());
             cellDO.setGmtCreate(new Date());
             cellDO.setGmtModified(new Date());
         }
@@ -127,13 +181,8 @@ public class AdminController {
         cellDO.setBackgroundImg(img);
         cellDO.setLink(link);
 
-        cellDAO.addCell(cellDO);
-
-        return "redirect:/admin/index.htm";
+        return cellDO;
     }
-
-
-
 
     @RequestMapping("/test.htm")
     public String test() {

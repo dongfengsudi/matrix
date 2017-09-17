@@ -40,8 +40,36 @@
                     modal.find('.link').val("")
                     modal.find('.banner-id').val(0)
                 }
-            })
-        })
+            });
+
+            $('#wechatModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var img_url = button.data("img")
+                var link = button.data("link")
+                var id = button.data("id")
+                var title = button.data("title")
+                var desc = button.data("desc")
+
+                var modal = $(this)
+                if (id) {
+                    modal.find('#myModalLabel').text("编辑公众号")
+                    modal.find('.id-input').val(id)
+                    modal.find('.title-input').val(title)
+                    modal.find('.description-input').val(desc)
+                    modal.find('.img-input').val(img_url)
+                    modal.find('.link-input').val(link)
+
+                } else {
+                    modal.find('#myModalLabel').text("添加公众号")
+                    modal.find('.id-input').val(0)
+                    modal.find('.title-input').val("")
+                    modal.find('.description-input').val("")
+                    modal.find('.img-input').val("")
+                    modal.find('.link-input').val("")
+                }
+            });
+
+        });
     </script>
 
 </head>
@@ -49,6 +77,53 @@
 
 
 <body>
+
+
+<!-- Modal -->
+<div class="modal fade" id="wechatModal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加公众号</h4>
+            </div>
+            <form class="form-horizontal" action="/admin/cityCellEdit">
+                <input type="hidden" class="id-input" name="id">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">标题</label>
+                        <div class="col-sm-10">
+                            <input class="form-control title-input" name="title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">描述</label>
+                        <div class="col-sm-10">
+                            <input class="form-control description-input" name="description">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图片链接</label>
+                        <div class="col-sm-10">
+                            <input class="form-control img-input" name="img">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">跳转链接</label>
+                        <div class="col-sm-10">
+                            <input class="form-control link-input" name="link">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="javascript:form.submit();">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="bannerModal" tabindex="-1" role="dialog" aria-labelledby="bannerModalLabel">
@@ -128,7 +203,7 @@
                     <td>
                         <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#bannerModal"
                                 th:attr="data-id=${banner.id},data-img=${banner.img},data-link=${banner.url}">修改</button>
-                        <button class="btn btn-danger" type="submit">删除</button>
+                        <!-- <button class="btn btn-danger" type="submit">删除</button> -->
                     </td>
                 </tr>
                 </tbody>
@@ -141,7 +216,7 @@
         <div class="row" style="margin-top: 15px;">
             <div class="col-md-10">公众号管理</div>
             <div class="col-md-2 pull-right">
-                <button class="btn btn-info" type="submit">添加公众号</button>
+                <button class="btn btn-info" data-toggle="modal" data-target="#wechatModal">添加banner</button>
             </div>
         </div>
         <div class="panel-body">
@@ -155,33 +230,23 @@
                 <td>操作</td>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
+                <tr th:each="item : ${itemList}">
+                    <td th:text="${item.id}"></td>
                     <td>
-                        <img src="http://i1.buimg.com/601291/15693bb86b6a9898.png" class="img-rounded" height="60px">
+                        <img th:src="@{${item.img}}" src="" class="img-rounded" height="60px">
                     </td>
-                    <td>上海发布</td>
-                    <td></td>
-                    <td>https://mp.weixin.qq.com/mp/profile_ext</td>
+                    <td th:text="${item.title}">上海发布</td>
+                    <td th:text="${item.description}"></td>
+                    <td><a th:href="@{${item.followLink}}" >微信公众号链接</a></td>
                     <td>
-                        <button class="btn btn-primary" type="submit">修改</button>
-                        <button class="btn btn-danger" type="submit">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <img src="http://i1.buimg.com/601291/84246f656a1ce945.png" class="img-rounded" height="60px">
-                    </td>
-                    <td>浦东发布</td>
-                    <td></td>
-                    <td>https://mp.weixin.qq.com/mp/profile_ext</td>
-                    <td>
-                        <button class="btn btn-primary" type="submit">修改</button>
-                        <button class="btn btn-danger" type="submit">删除</button>
+                        <button class="btn btn-primary" type="submit"
+                                data-toggle="modal" data-target="#wechatModal"
+                                th:attr="data-id=${item.id},data-title=${item.title},
+                                         data-desc=${item.description},data-img=${item.img},data-link=${item.followLink}"
+                        >修改</button>
+                        <!-- <button class="btn btn-danger" type="submit">删除</button> -->
                     </td>
                 </tr>
-
                 </tbody>
             </table>
         </div>

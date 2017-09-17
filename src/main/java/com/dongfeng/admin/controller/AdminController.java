@@ -5,7 +5,9 @@ import com.dongfeng.admin.biz.service.ManageService;
 import com.dongfeng.admin.contant.PageConstant;
 import com.dongfeng.biz.constant.NavTab;
 import com.dongfeng.biz.dao.BannerDAO;
+import com.dongfeng.biz.dao.CellDAO;
 import com.dongfeng.biz.data.BannerDO;
+import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.service.CityPageService;
 import com.dongfeng.biz.service.CommunityPageService;
 import com.dongfeng.biz.vo.CityPageVO;
@@ -44,6 +46,9 @@ public class AdminController {
 
     @Resource
     private BannerDAO bannerDAO;
+
+    @Resource
+    private CellDAO cellDAO;
 
 
     @RequestMapping("/login.htm")
@@ -97,6 +102,32 @@ public class AdminController {
         bannerDO.setLink(link);
 
         bannerDAO.addBanner(bannerDO);
+
+        return "redirect:/admin/index.htm";
+    }
+
+    @RequestMapping("/cityCellEdit")
+    public String cityCellEdit(@RequestParam("id") long id,
+                               @RequestParam("title") String title,
+                               @RequestParam("description") String description,
+                               @RequestParam("img") String img,
+                               @RequestParam("link") String link) {
+
+        CellDO cellDO = cellDAO.findOne(id);
+
+        if (cellDO == null) {
+            cellDO = new CellDO();
+            cellDO.setTabIdentity(NavTab.CITY.getIdentity());
+            cellDO.setGmtCreate(new Date());
+            cellDO.setGmtModified(new Date());
+        }
+
+        cellDO.setTitle(title);
+        cellDO.setDescription(description);
+        cellDO.setBackgroundImg(img);
+        cellDO.setLink(link);
+
+        cellDAO.addCell(cellDO);
 
         return "redirect:/admin/index.htm";
     }

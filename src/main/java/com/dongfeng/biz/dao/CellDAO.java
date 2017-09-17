@@ -25,4 +25,15 @@ public class CellDAO {
         return tryResult.onFailure(e -> e.printStackTrace()).getOrElse(Lists.newArrayList());
     }
 
+    public boolean addCell(CellDO cellDO) {
+        return Try.of(() -> cellRepository.save(cellDO)).isSuccess();
+    }
+
+    public CellDO findOne(long id) {
+        return Try.of(()-> cellRepository.findOne(id)).getOrElse((CellDO) null);
+    }
+
+
+
+
 }

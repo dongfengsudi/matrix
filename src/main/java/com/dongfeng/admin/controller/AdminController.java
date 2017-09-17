@@ -52,7 +52,7 @@ public class AdminController {
     private CellDAO cellDAO;
 
 
-    @RequestMapping("/login.htm")
+    @RequestMapping("/login")
     public String login(Model model,String context) {
         if (StringUtils.isNotEmpty(context)) {
             model.addAttribute("result",context);

@@ -9,7 +9,6 @@ import com.dongfeng.biz.dao.CellDAO;
 import com.dongfeng.biz.data.BannerDO;
 import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.service.CityPageService;
-import com.dongfeng.biz.service.CommunityPageService;
 import com.dongfeng.biz.vo.CityPageVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -40,9 +39,6 @@ public class AdminController {
     private ManageService manageService;
 
     @Resource
-    private CommunityPageService communityPageService;
-
-    @Resource
     private CityPageService cityPageService;
 
     @Resource
@@ -52,12 +48,12 @@ public class AdminController {
     private CellDAO cellDAO;
 
 
-    @RequestMapping("/login")
+    @RequestMapping("/login.htm")
     public String login(Model model,String context) {
         if (StringUtils.isNotEmpty(context)) {
             model.addAttribute("result",context);
         }
-        return "/admin/login";
+        return "admin/login";
     }
 
     @RequestMapping(value = "/tryLogin.do", method = RequestMethod.POST)
@@ -67,7 +63,7 @@ public class AdminController {
             session.setAttribute(PageConstant.USER_NAME,username);
             return "redirect:/admin/index.htm";
         } else {
-            return "redirect:/admin/login?context=fail";
+            return "redirect:/admin/login.htm?context=fail";
         }
 
     }

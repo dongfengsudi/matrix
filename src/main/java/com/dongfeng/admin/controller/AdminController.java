@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -96,7 +97,15 @@ public class AdminController {
         return "admin/town";
     }
 
+    @RequestMapping("/community.htm")
+    public String community(HttpSession session, Model model) {
+        String username = (String) session.getAttribute(PageConstant.USER_NAME);
+        model.addAttribute("username",username);
 
+        List<CellDO> cellDOList = cellDAO.findByTabIdentity((NavTab.COMMUNITY.getIdentity()));
+        model.addAttribute("itemList",cellDOList);
+        return "admin/community";
+    }
 
     @RequestMapping("/cityBannerEdit")
     public String cityBannerEdit(@RequestParam("id") long id,
@@ -164,6 +173,19 @@ public class AdminController {
         cellDAO.addCell(cellDO);
         return "redirect:/admin/town.htm";
     }
+
+    @RequestMapping("/communityCellEdit")
+    public String communityCellEdit(@RequestParam("id") long id,
+                               @RequestParam("title") String title,
+                               @RequestParam("img") String img,
+                               @RequestParam("link") String link) {
+
+        CellDO cellDO = this.getCommonCell(id,title,"",img,link);
+        cellDO.setTabIdentity(NavTab.COMMUNITY.getIdentity());
+        cellDAO.addCell(cellDO);
+        return "redirect:/admin/community.htm";
+    }
+
 
 
     private CellDO getCommonCell(long id, String title, String description, String img, String link) {

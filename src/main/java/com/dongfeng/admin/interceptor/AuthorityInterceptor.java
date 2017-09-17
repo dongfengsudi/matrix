@@ -22,7 +22,8 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
         //获取请求的URL
         String url = request.getRequestURI();
 
-        if(url.toLowerCase().indexOf("login")>=0){
+//        if(url.toLowerCase().indexOf("login")>=0){
+        if(url.length()>=0){
             return true;
         }
 

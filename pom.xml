@@ -70,6 +70,14 @@
         </dependency>
         <!-- }} -->
 
+        <!-- {{ http://blog.csdn.net/yalishadaa/article/details/60768811 -->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+        <!-- }} -->
+
         <!-- {{ 常用jar包 -->
         <dependency>
             <groupId>com.google.guava</groupId>

@@ -36,7 +36,7 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
 
         String urlEncode = UrlUtils.urlEncode(url);
         //不符合条件的，跳转到登录界面
-        response.sendRedirect("/admin/login.htm?redirect="+urlEncode);
+        response.sendRedirect("/admin/login?redirect="+urlEncode);
         return false;
     }
 }

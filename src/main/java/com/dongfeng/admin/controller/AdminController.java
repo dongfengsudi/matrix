@@ -67,7 +67,7 @@ public class AdminController {
             session.setAttribute(PageConstant.USER_NAME,username);
             return "redirect:/admin/index.htm";
         } else {
-            return "redirect:/admin/login.htm?context=fail";
+            return "redirect:/admin/login?context=fail";
         }
 
     }

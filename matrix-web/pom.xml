@@ -55,6 +55,11 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
 
         <!-- {{ jasypt 安全包 参考: http://www.cnblogs.com/zz0412/p/jasypt-001.html -->
         <dependency>

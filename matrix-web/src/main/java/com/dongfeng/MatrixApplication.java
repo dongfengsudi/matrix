@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableEncryptableProperties
 public class MatrixApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MatrixApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MatrixApplication.class, args);
+    }
 }

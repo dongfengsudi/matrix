@@ -13,9 +13,9 @@ import java.util.Date;
  * @date 2017-09-16
  */
 @Entity
-@Table(name = "banner")
+@Table(name = "cell")
 @Data
-public class BannerDO extends BaseDO{
+public class CellDO {
 
     @Id
     @GeneratedValue
@@ -25,8 +25,11 @@ public class BannerDO extends BaseDO{
     private Date gmtModified;
     private byte deleted;
 
-    private String picUrl;  // banner 图片链接
-    private String link;    // banner 跳转链接
-    private String tabIdentity; // 标识符
+    private String title;
+    private String backgroundImg;
+    private String link;
+    private String description;
+    private String tabIdentity;
+
 
 }

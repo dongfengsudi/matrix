@@ -68,9 +68,6 @@
         </dependency>
         <!-- }} -->
 
-
-
-        <!-- {{ test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -81,7 +78,6 @@
             <artifactId>spring-boot-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- }} -->
 
         <!-- {{ http://blog.csdn.net/yalishadaa/article/details/60768811 -->
         <dependency>
@@ -89,8 +85,6 @@
             <artifactId>nekohtml</artifactId>
         </dependency>
         <!-- }} -->
-
-        <!-- {{ 常用jar包 -->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -117,7 +111,11 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
         </dependency>
-        <!-- }} -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
 
     </dependencies>
 

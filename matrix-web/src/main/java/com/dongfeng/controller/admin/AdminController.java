@@ -1,4 +1,4 @@
-package com.dongfeng.admin.controller;
+package com.dongfeng.controller.admin;
 
 import com.dongfeng.admin.biz.repository.UserRepository;
 import com.dongfeng.admin.biz.service.ManageService;

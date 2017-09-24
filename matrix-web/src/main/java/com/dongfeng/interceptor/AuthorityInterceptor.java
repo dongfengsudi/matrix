@@ -1,4 +1,4 @@
-package com.dongfeng.admin.interceptor;
+package com.dongfeng.interceptor;
 
 import com.dongfeng.admin.contant.PageConstant;
 import com.dongfeng.biz.utils.UrlUtils;

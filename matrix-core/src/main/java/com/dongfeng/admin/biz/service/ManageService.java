@@ -1,8 +1,6 @@
 package com.dongfeng.admin.biz.service;
 
 import com.dongfeng.biz.constant.NavTab;
-import com.dongfeng.biz.dao.BannerDAO;
-import com.dongfeng.biz.dao.CellDAO;
 import com.dongfeng.biz.data.BannerDO;
 import com.dongfeng.biz.data.CellDO;
 import com.dongfeng.biz.repository.BannerRepository;
@@ -12,7 +10,6 @@ import com.dongfeng.biz.service.CommunityPageService;
 import com.dongfeng.biz.vo.CityPageVO;
 import com.dongfeng.biz.vo.CommunityPageVO;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -43,7 +40,7 @@ public class ManageService {
         return communityPageService.getPage();
     }
 
-    public BannerDO addBanner(@RequestParam String picUrl, @RequestParam String link, @RequestParam String tabIdentity){
+    public BannerDO addBanner( String picUrl,  String link,  String tabIdentity){
         BannerDO banner = new BannerDO();
         Date date = new Date();
         banner.setDeleted((byte)0);
@@ -55,7 +52,7 @@ public class ManageService {
         return bannerRepository.save(banner);
     }
 
-    public BannerDO delBanner(@RequestParam int id){
+    public BannerDO delBanner( int id){
         BannerDO banner = new BannerDO();
         Date date = new Date();
         banner.setId(id);
@@ -64,7 +61,7 @@ public class ManageService {
         return bannerRepository.save(banner);
     }
 
-    public CellDO addCell(@RequestParam String title, @RequestParam String back_img, @RequestParam String link, @RequestParam String identity, @RequestParam String desc){
+    public CellDO addCell( String title,  String back_img,  String link,  String identity,  String desc){
         CellDO cell = new CellDO();
         Date date = new Date();
         cell.setDeleted((byte)0);
@@ -78,7 +75,7 @@ public class ManageService {
         return cellRepository.save(cell);
     }
 
-    public CellDO delCell(@RequestParam int id){
+    public CellDO delCell( int id){
         CellDO cell = new CellDO();
         Date date = new Date();
         cell.setId(id);
